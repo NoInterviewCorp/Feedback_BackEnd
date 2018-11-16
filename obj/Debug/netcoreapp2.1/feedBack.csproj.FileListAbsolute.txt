@@ -1,0 +1,28 @@
+c:\Users\CGI\Stackroute\sampleauth\login.final\angu login\New folder (4)\newNoInterview\bin\Debug\netcoreapp2.1\feedBack.deps.json
+c:\Users\CGI\Stackroute\sampleauth\login.final\angu login\New folder (4)\newNoInterview\bin\Debug\netcoreapp2.1\feedBack.runtimeconfig.json
+c:\Users\CGI\Stackroute\sampleauth\login.final\angu login\New folder (4)\newNoInterview\bin\Debug\netcoreapp2.1\feedBack.runtimeconfig.dev.json
+c:\Users\CGI\Stackroute\sampleauth\login.final\angu login\New folder (4)\newNoInterview\bin\Debug\netcoreapp2.1\feedBack.dll
+c:\Users\CGI\Stackroute\sampleauth\login.final\angu login\New folder (4)\newNoInterview\bin\Debug\netcoreapp2.1\feedBack.pdb
+c:\Users\CGI\Stackroute\sampleauth\login.final\angu login\New folder (4)\newNoInterview\obj\Debug\netcoreapp2.1\feedBack.csprojAssemblyReference.cache
+c:\Users\CGI\Stackroute\sampleauth\login.final\angu login\New folder (4)\newNoInterview\obj\Debug\netcoreapp2.1\feedBack.csproj.CoreCompileInputs.cache
+c:\Users\CGI\Stackroute\sampleauth\login.final\angu login\New folder (4)\newNoInterview\obj\Debug\netcoreapp2.1\feedBack.RazorAssemblyInfo.cache
+c:\Users\CGI\Stackroute\sampleauth\login.final\angu login\New folder (4)\newNoInterview\obj\Debug\netcoreapp2.1\feedBack.RazorAssemblyInfo.cs
+c:\Users\CGI\Stackroute\sampleauth\login.final\angu login\New folder (4)\newNoInterview\obj\Debug\netcoreapp2.1\feedBack.AssemblyInfoInputs.cache
+c:\Users\CGI\Stackroute\sampleauth\login.final\angu login\New folder (4)\newNoInterview\obj\Debug\netcoreapp2.1\feedBack.AssemblyInfo.cs
+c:\Users\CGI\Stackroute\sampleauth\login.final\angu login\New folder (4)\newNoInterview\obj\Debug\netcoreapp2.1\feedBack.RazorTargetAssemblyInfo.cache
+c:\Users\CGI\Stackroute\sampleauth\login.final\angu login\New folder (4)\newNoInterview\obj\Debug\netcoreapp2.1\feedBack.dll
+c:\Users\CGI\Stackroute\sampleauth\login.final\angu login\New folder (4)\newNoInterview\obj\Debug\netcoreapp2.1\feedBack.pdb
+c:\Users\CGI\Stackroute\newNoInterview\bin\Debug\netcoreapp2.1\feedBack.deps.json
+c:\Users\CGI\Stackroute\newNoInterview\bin\Debug\netcoreapp2.1\feedBack.runtimeconfig.json
+c:\Users\CGI\Stackroute\newNoInterview\bin\Debug\netcoreapp2.1\feedBack.runtimeconfig.dev.json
+c:\Users\CGI\Stackroute\newNoInterview\bin\Debug\netcoreapp2.1\feedBack.dll
+c:\Users\CGI\Stackroute\newNoInterview\bin\Debug\netcoreapp2.1\feedBack.pdb
+c:\Users\CGI\Stackroute\newNoInterview\obj\Debug\netcoreapp2.1\feedBack.csprojAssemblyReference.cache
+c:\Users\CGI\Stackroute\newNoInterview\obj\Debug\netcoreapp2.1\feedBack.csproj.CoreCompileInputs.cache
+c:\Users\CGI\Stackroute\newNoInterview\obj\Debug\netcoreapp2.1\feedBack.RazorAssemblyInfo.cache
+c:\Users\CGI\Stackroute\newNoInterview\obj\Debug\netcoreapp2.1\feedBack.RazorAssemblyInfo.cs
+c:\Users\CGI\Stackroute\newNoInterview\obj\Debug\netcoreapp2.1\feedBack.AssemblyInfoInputs.cache
+c:\Users\CGI\Stackroute\newNoInterview\obj\Debug\netcoreapp2.1\feedBack.AssemblyInfo.cs
+c:\Users\CGI\Stackroute\newNoInterview\obj\Debug\netcoreapp2.1\feedBack.RazorTargetAssemblyInfo.cache
+c:\Users\CGI\Stackroute\newNoInterview\obj\Debug\netcoreapp2.1\feedBack.dll
+c:\Users\CGI\Stackroute\newNoInterview\obj\Debug\netcoreapp2.1\feedBack.pdb
