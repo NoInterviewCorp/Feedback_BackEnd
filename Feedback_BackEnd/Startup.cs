@@ -44,8 +44,9 @@ namespace feedBack
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            
             app.UseMvc();
+            app.UseHttpsRedirection();
         }
     }
 }

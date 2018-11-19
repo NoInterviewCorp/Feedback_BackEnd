@@ -198,8 +198,8 @@ namespace feedBack.Controllers
 
         }
 
-
-        [HttpPost("Uploads")]
+    
+        [HttpPost("uploads")]
 
         public async Task<IActionResult> Uploads(IFormFileCollection files)
         {
@@ -209,7 +209,7 @@ namespace feedBack.Controllers
             {
                 foreach (var formFile in files)
                 {
-                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "../ProfilePic/Image", formFile.FileName);
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "./ProfilePic/Image", formFile.FileName);
                     var stream = new FileStream(filePath, FileMode.Create);
                     await formFile.CopyToAsync(stream);
 
