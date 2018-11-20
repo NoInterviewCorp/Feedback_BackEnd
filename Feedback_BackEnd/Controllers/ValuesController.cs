@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Http;
 using System.Web.Http;
 namespace feedBack.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
