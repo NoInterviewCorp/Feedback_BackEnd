@@ -6,8 +6,8 @@ namespace feedBack
 {
     public class GiveStarPayload
     {
-        public int Rating{get;set;}
-        public int Subscribe{get;set;}
-        public int ambigous{get;set;}
+        public int Rating { get; set; }
+        public int Subscribe { get; set; }
+        public int ambigous { get; set; }
     }
 }

@@ -23,16 +23,12 @@ namespace feedBack.Controllers
             this.client = _client;
 
         }
-         [HttpGet]
+        [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
 
         {
 
 
-            /*    IEnumerable<string> results = client.client.Cypher
-                .Match("(p:Person)-[:ACTED_IN]->(m:Movie {title: 'Top Gun'})")
-                .Return<string>("p.name")
-                   .Results;*/
             var results1 = client.client.Cypher
              .Match("(user:User)")
              .Return(user => user.As<User>())
@@ -108,7 +104,7 @@ namespace feedBack.Controllers
 
         }
 
- [HttpPost("Resource")]
+        [HttpPost("Resource")]
         public IActionResult ResourcePost([FromBody] Resource newResource)
         {
             try
@@ -162,7 +158,7 @@ namespace feedBack.Controllers
 
 
         }
-    
+
         [HttpPost("Uploads")]
 
         public async Task<IActionResult> Uploads(IFormFileCollection files)
@@ -190,7 +186,7 @@ namespace feedBack.Controllers
         [HttpPost("LearningPlanRating")]
         public async Task<IActionResult> UpdateRatingAsync([FromBody] LearningPlanFeedBack learningPlanFeedback)
         {
-            GiveStarPayload giveStar = new GiveStarPayload{Rating=learningPlanFeedback.Star};
+            GiveStarPayload giveStar = new GiveStarPayload { Rating = learningPlanFeedback.Star };
             await client.client.Cypher
                 .Match("(user:User)", "(lp:LearningPlan)")
                 .Where((User user) => user.UserId == learningPlanFeedback.UserId)
@@ -210,8 +206,8 @@ namespace feedBack.Controllers
                 .Match("(:User)-[g:LP_RATING]->(lp:LearningPlan {LearningPlanId:{id}})")
                 .WithParams(new
                 {
-                        id= learningPlanFeedback.LearningPlanId,
-                        // rating=
+                    id = learningPlanFeedback.LearningPlanId,
+                    // rating=
                 })
                 .Return<float>("avg(g.Rating)")
                 // .Return (g => Avg(g.As<GiveStarPayload>().Rating))
@@ -221,7 +217,7 @@ namespace feedBack.Controllers
         [HttpPost("ResourceRating")]
         public async Task<IActionResult> UpdateResourceRatingAsync([FromBody] ResourceFeedBack resourceFeedBack)
         {
-            GiveStarPayload giveStar = new GiveStarPayload{Rating=resourceFeedBack.Star};
+            GiveStarPayload giveStar = new GiveStarPayload { Rating = resourceFeedBack.Star };
             await client.client.Cypher
                 .Match("(user:User)", "(Re:Resource)")
                 .Where((User user) => user.UserId == resourceFeedBack.UserId)
@@ -241,23 +237,23 @@ namespace feedBack.Controllers
                 .Match("(:User)-[g:Resource_RATING]->(Re:Resource {ResourceId:{id}})")
                 .WithParams(new
                 {
-                        id= resourceFeedBack.ResourceId,
-                        // rating=
+                    id = resourceFeedBack.ResourceId,
+                    // rating=
                 })
                 .Return<float>("avg(g.Rating)")
                 // .Return (g => Avg(g.As<GiveStarPayload>().Rating))
                 .ResultsAsync;
             return Ok(new List<float>(queryAvg)[0]);
         }
-         [HttpPost("LearningPlanSubscriber")]
+        [HttpPost("LearningPlanSubscriber")]
         public async Task<IActionResult> UpdateSubscriberAsync([FromBody] LearningPlanFeedBack learningPlanFeedback)
         {
-            GiveStarPayload LearningPlanSubscriber = new GiveStarPayload{Subscribe=learningPlanFeedback.subscribe};
+            GiveStarPayload LearningPlanSubscriber = new GiveStarPayload { Subscribe = learningPlanFeedback.subscribe };
             await client.client.Cypher
                 .Match("(user:User)", "(lp:LearningPlan)")
                 .Where((User user) => user.UserId == learningPlanFeedback.UserId)
                 .AndWhere((LearningPlan lp) => lp.LearningPlanId == learningPlanFeedback.LearningPlanId)
-               
+
                 .Merge("(user)-[g:LP_Subscribe]->(lp)")
                 .OnCreate()
                 .Set("g={LearningPlanSubscriber}")
@@ -271,26 +267,26 @@ namespace feedBack.Controllers
                 .ExecuteWithoutResultsAsync();
             var totalsubscriber = await client.client.Cypher
                .Match("(:User)-[g:LP_Subscribe]->(lp:LearningPlan {LearningPlanId:{id}})")
-              // .Match((GiveStarPayload sub)=>sub.Subscribe==1)
+                // .Match((GiveStarPayload sub)=>sub.Subscribe==1)
                 .WithParams(new
                 {
-                        id= learningPlanFeedback.LearningPlanId,
-                        // rating=
+                    id = learningPlanFeedback.LearningPlanId,
+                    // rating=
                 })
                .Return<int>("count(g.Subscribe)")
                 // .Return (g => Avg(g.As<GiveStarPayload>().Rating))
                 .ResultsAsync;
             return Ok(new List<int>(totalsubscriber)[0]);
         }
-         [HttpPost("QuestionReport")]
+        [HttpPost("QuestionReport")]
         public async Task<IActionResult> QuestionReportAsync([FromBody] QuestionFeedBack questionFeedBack)
         {
-            GiveStarPayload QuestionReport = new GiveStarPayload{ambigous=questionFeedBack.Ambiguity};
+            GiveStarPayload QuestionReport = new GiveStarPayload { ambigous = questionFeedBack.Ambiguity };
             await client.client.Cypher
                 .Match("(user:User)", "(qe:Question)")
                 .Where((User user) => user.UserId == questionFeedBack.UserId)
                 .AndWhere((Question qe) => qe.QuestionId == questionFeedBack.QuestionId)
-               
+
                 .Merge("(user)-[g:Question_Report]->(qe)")
                 .OnCreate()
                 .Set("g={QuestionReport}")
@@ -304,18 +300,18 @@ namespace feedBack.Controllers
                 .ExecuteWithoutResultsAsync();
             var totalReport = await client.client.Cypher
                .Match("(:User)-[g:Question_Report]->(qe:Question {QuestionId:{id}})")
-              // .Match((GiveStarPayload sub)=>sub.Subscribe==1)
+                // .Match((GiveStarPayload sub)=>sub.Subscribe==1)
                 .WithParams(new
                 {
-                        id= questionFeedBack.QuestionId,
-                        // rating=
+                    id = questionFeedBack.QuestionId,
+                    // rating=
                 })
                .Return<int>("count(g.ambigous)")
                 // .Return (g => Avg(g.As<GiveStarPayload>().Rating))
                 .ResultsAsync;
             return Ok(new List<int>(totalReport)[0]);
         }
-       
+
 
         // PUT api/values/5
         [HttpPut("{id}")]

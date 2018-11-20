@@ -18,7 +18,7 @@ namespace feedBack
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            
+
         }
 
         public IConfiguration Configuration { get; }
@@ -28,8 +28,8 @@ namespace feedBack
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSingleton<GraphDbConnection>();
-            
-            
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,7 +44,7 @@ namespace feedBack
                 app.UseHsts();
             }
 
-            
+
             app.UseMvc();
             app.UseHttpsRedirection();
         }
