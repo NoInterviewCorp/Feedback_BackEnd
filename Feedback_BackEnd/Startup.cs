@@ -31,7 +31,7 @@ namespace feedBack
             services.AddSingleton<GraphDbConnection>();
             services.AddSwaggerGen(c =>
             {
-             c.SwaggerDoc("v1", new Info { Title = "Feedback_BackEnd", Version = "v1" });
+                c.SwaggerDoc("v1", new Info { Title = "Feedback_BackEnd", Version = "v1" });
             });
 
 
@@ -49,14 +49,14 @@ namespace feedBack
                 app.UseHsts();
             }
 
-           app.UseSwagger();
+            app.UseSwagger();
 
-    // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
-    // specifying the Swagger JSON endpoint.
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Feeback_BackEnd");
-    });
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Feeback_BackEnd");
+            });
             app.UseMvc();
             app.UseHttpsRedirection();
         }
