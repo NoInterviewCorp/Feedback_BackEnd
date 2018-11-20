@@ -20,11 +20,7 @@ namespace feedBack
        // public int LearningPlanFeedBackId{get;set;}
         public int LearningPlanId{get;set;}
         public string technology{get;set;}
-      //  public int UserId{get;set;}
-       // public double AverageStar { get; set;}
-       // public int Star {get; set;}
-        // public bool subscribe {get; set;} 
-       // public int totalsubscriber{get;set;}
+      
     }
     public class Resource{
         public int ResourceId{get;set;}

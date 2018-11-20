@@ -23,7 +23,7 @@ namespace feedBack.Controllers
             this.client = _client;
 
         }
-        [HttpPost("learningPlanFeedback")]
+        [HttpPost("LearningPlanRating")]
         public async Task<IActionResult> UpdateRatingAsync([FromBody] LearningPlanFeedBack learningPlanFeedback)
         {
             GiveStarPayload giveStar = new GiveStarPayload{Rating=learningPlanFeedback.Star};
@@ -54,7 +54,7 @@ namespace feedBack.Controllers
                 .ResultsAsync;
             return Ok(new List<float>(queryAvg)[0]);
         }
-         [HttpPost("resourceFeedback")]
+        [HttpPost("ResourceRating")]
         public async Task<IActionResult> UpdateResourceRatingAsync([FromBody] ResourceFeedBack resourceFeedBack)
         {
             GiveStarPayload giveStar = new GiveStarPayload{Rating=resourceFeedBack.Star};
@@ -84,6 +84,37 @@ namespace feedBack.Controllers
                 // .Return (g => Avg(g.As<GiveStarPayload>().Rating))
                 .ResultsAsync;
             return Ok(new List<float>(queryAvg)[0]);
+        }
+         [HttpPost("LearningPlanSubscriber")]
+        public async Task<IActionResult> UpdateSubscriberAsync([FromBody] LearningPlanFeedBack learningPlanFeedback)
+        {
+            GiveStarPayload LearningPlanSubscriber = new GiveStarPayload{Subscribe=learningPlanFeedback.subscribe};
+            await client.client.Cypher
+                .Match("(user:User)", "(lp:LearningPlan)")
+                .Where((User user) => user.UserId == learningPlanFeedback.UserId)
+                .AndWhere((LearningPlan lp) => lp.LearningPlanId == learningPlanFeedback.LearningPlanId)
+                .Merge("(user)-[g:LP_Subscribe]->(lp)")
+                .OnCreate()
+                .Set("g={LearningPlanSubscriber}")
+                .OnMatch()
+                .Set("g={LearningPlanSubscriber}")
+                .WithParams(new
+                {
+                    usersubscribe = learningPlanFeedback.subscribe,
+                    LearningPlanSubscriber
+                })
+                .ExecuteWithoutResultsAsync();
+            var totalsubscriber = await client.client.Cypher
+                .Match("(:User)-[g:LP_Subscribe]->(lp:LearningPlan {LearningPlanId:{id}})")
+                .WithParams(new
+                {
+                        id= learningPlanFeedback.LearningPlanId,
+                        // rating=
+                })
+                .Return<int>("count(g.Subscribe")
+                // .Return (g => Avg(g.As<GiveStarPayload>().Rating))
+                .ResultsAsync;
+            return Ok(new List<int>(totalsubscriber)[0]);
         }
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
@@ -115,7 +146,7 @@ namespace feedBack.Controllers
         }
 
         // POST api/values
-        [HttpPost("usernode")]
+        [HttpPost("UserNode")]
         public IActionResult UserPost([FromBody] User newUser)
         {
             try
@@ -142,7 +173,7 @@ namespace feedBack.Controllers
 
 
         }
-        [HttpPost("learningplan")]
+        [HttpPost("LearningPlan")]
         public IActionResult LPPost([FromBody] LearningPlan newLP)
         {
             try
@@ -170,7 +201,7 @@ namespace feedBack.Controllers
 
         }
 
- [HttpPost("resource")]
+ [HttpPost("Resource")]
         public IActionResult ResourcePost([FromBody] Resource newResource)
         {
             try
@@ -199,7 +230,7 @@ namespace feedBack.Controllers
         }
 
     
-        [HttpPost("uploads")]
+        [HttpPost("Uploads")]
 
         public async Task<IActionResult> Uploads(IFormFileCollection files)
         {
