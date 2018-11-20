@@ -12,7 +12,7 @@ namespace feedBack
         public int UserId{get;set;}
        // public double AverageStar { get; set;}
         public int Star {get; set;}
-        public bool subscribe {get; set;} 
+        public int subscribe {get; set;} 
        // public int totalsubscriber{get;set;}
     }
     public class LearningPlan
@@ -25,6 +25,10 @@ namespace feedBack
     public class Resource{
         public int ResourceId{get;set;}
         public string RDescription{get;set;}
+    }
+    public class  Question{
+        public int QuestionId{get;set;}
+        public string technology{get;set;}
     }
    public class ResourceFeedBack
     {
@@ -39,7 +43,7 @@ namespace feedBack
     {
         
        public int QuestionId{get;set;}
-
+       public int UserId{get;set;}
         public int Ambiguity {get; set;} 
        
     }
