@@ -325,6 +325,43 @@ namespace feedBack.Controllers
                 .ResultsAsync;
             return Ok(new List<int>(totalsubscriber)[0]);
         }
+
+        [HttpPost("UnSubscriberLearningPlan")]
+        public async Task<IActionResult> UnSubscriberLearningPlanAsync([FromBody] LearningPlanFeedBack learningPlanFeedback)
+        {
+            GiveStarPayload LearningPlanSubscriber = new GiveStarPayload { Subscribe = learningPlanFeedback.subscribe };
+            await client.client.Cypher
+                .Match("(user:User)", "(lp:LearningPlan)")
+                .Where((User user) => user.UserId == learningPlanFeedback.UserId)
+                .AndWhere((LearningPlan lp) => lp.LearningPlanId == learningPlanFeedback.LearningPlanId)
+
+                .Merge("(user)-[g:Subscribe_LP]->(lp)")
+                .Delete("g")
+                //.OnCreate()
+                //.Set("g={LearningPlanSubscriber}")
+               // .OnMatch()
+               // .Set("g={LearningPlanSubscriber}")
+               // .WithParams(new
+               // {
+               //     usersubscribe = learningPlanFeedback.subscribe,
+               //     LearningPlanSubscriber
+               // })
+                .ExecuteWithoutResultsAsync();
+            var totalsubscriber = await client.client.Cypher
+               .Match("(:User)-[g:Subscribe_LP]->(lp:LearningPlan {LearningPlanId:{id}})")
+                // .Match((GiveStarPayload sub)=>sub.Subscribe==1)
+                .With("lp,  count(g.Subscribe) as total_subscriber ")
+                .Set("lp.Subscriber = total_subscriber")
+                .WithParams(new
+                {
+                    id = learningPlanFeedback.LearningPlanId,
+                    // rating=
+                })
+               .Return<int>("lp.Subscriber")
+                // .Return (g => Avg(g.As<GiveStarPayload>().Rating))
+                .ResultsAsync;
+            return Ok(new List<int>(totalsubscriber)[0]);
+        }
         //Repost a question
         [HttpPost("ReportQuestion")]
         public async Task<IActionResult> ReportQuestionAsync([FromBody] QuestionFeedBack questionFeedBack)
@@ -371,7 +408,7 @@ namespace feedBack.Controllers
             try
             {
                 client.client.Cypher
-              .Match("(user:User)")
+              .Match("(user:User)")  
               .Where((User user) => user.UserId == id)
                .Set("user = {newUser}")
                     .WithParams(new
