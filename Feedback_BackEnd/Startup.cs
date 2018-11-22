@@ -56,9 +56,10 @@ namespace feedBack
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Feeback_BackEnd");
+                c.RoutePrefix = string.Empty;
             });
             app.UseMvc();
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
         }
     }
 }

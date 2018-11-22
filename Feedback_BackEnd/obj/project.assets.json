@@ -11976,11 +11976,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\CGI\\Stackroute\\Feedback_BackEnd\\Feedback_BackEnd\\feedBack.csproj",
+      "projectUniqueName": "c:\\Users\\CGI\\Stackroute\\new\\feed\\Feedback_BackEnd\\feedBack.csproj",
       "projectName": "feedBack",
-      "projectPath": "C:\\Users\\CGI\\Stackroute\\Feedback_BackEnd\\Feedback_BackEnd\\feedBack.csproj",
+      "projectPath": "c:\\Users\\CGI\\Stackroute\\new\\feed\\Feedback_BackEnd\\feedBack.csproj",
       "packagesPath": "C:\\Users\\CGI\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\CGI\\Stackroute\\Feedback_BackEnd\\Feedback_BackEnd\\obj\\",
+      "outputPath": "c:\\Users\\CGI\\Stackroute\\new\\feed\\Feedback_BackEnd\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

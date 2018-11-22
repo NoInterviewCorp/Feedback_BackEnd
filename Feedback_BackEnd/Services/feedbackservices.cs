@@ -17,7 +17,7 @@ namespace feedBack.Services
         {
             // = new GraphClient(new Uri("http://localhost:7688/db/data"), "neo4j", "qwertyuiop");
             // .Connect();
-            client = new GraphClient(new Uri("http://localhost:7474/db/data"), "neo4j", "Vfunny@123");
+            client = new GraphClient(new Uri("http://localhost:11008/db/data"), "neo4j", "Vfunny@123");
             client.Connect();
         }
         public void Dispose()
