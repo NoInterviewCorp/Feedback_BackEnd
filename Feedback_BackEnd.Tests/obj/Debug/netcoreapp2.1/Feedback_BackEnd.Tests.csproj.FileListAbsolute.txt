@@ -1,0 +1,14 @@
+C:\Users\CGI\Stackroute\new\feed\Feedback_BackEnd.Tests\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\CGI\Stackroute\new\feed\Feedback_BackEnd.Tests\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\CGI\Stackroute\new\feed\Feedback_BackEnd.Tests\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+C:\Users\CGI\Stackroute\new\feed\Feedback_BackEnd.Tests\bin\Debug\netcoreapp2.1\Feedback_BackEnd.Tests.deps.json
+C:\Users\CGI\Stackroute\new\feed\Feedback_BackEnd.Tests\bin\Debug\netcoreapp2.1\Feedback_BackEnd.Tests.runtimeconfig.json
+C:\Users\CGI\Stackroute\new\feed\Feedback_BackEnd.Tests\bin\Debug\netcoreapp2.1\Feedback_BackEnd.Tests.runtimeconfig.dev.json
+C:\Users\CGI\Stackroute\new\feed\Feedback_BackEnd.Tests\bin\Debug\netcoreapp2.1\Feedback_BackEnd.Tests.dll
+C:\Users\CGI\Stackroute\new\feed\Feedback_BackEnd.Tests\bin\Debug\netcoreapp2.1\Feedback_BackEnd.Tests.pdb
+C:\Users\CGI\Stackroute\new\feed\Feedback_BackEnd.Tests\obj\Debug\netcoreapp2.1\Feedback_BackEnd.Tests.csprojAssemblyReference.cache
+C:\Users\CGI\Stackroute\new\feed\Feedback_BackEnd.Tests\obj\Debug\netcoreapp2.1\Feedback_BackEnd.Tests.csproj.CoreCompileInputs.cache
+C:\Users\CGI\Stackroute\new\feed\Feedback_BackEnd.Tests\obj\Debug\netcoreapp2.1\Feedback_BackEnd.Tests.AssemblyInfoInputs.cache
+C:\Users\CGI\Stackroute\new\feed\Feedback_BackEnd.Tests\obj\Debug\netcoreapp2.1\Feedback_BackEnd.Tests.AssemblyInfo.cs
+C:\Users\CGI\Stackroute\new\feed\Feedback_BackEnd.Tests\obj\Debug\netcoreapp2.1\Feedback_BackEnd.Tests.dll
+C:\Users\CGI\Stackroute\new\feed\Feedback_BackEnd.Tests\obj\Debug\netcoreapp2.1\Feedback_BackEnd.Tests.pdb
