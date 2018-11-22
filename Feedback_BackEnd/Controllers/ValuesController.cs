@@ -24,62 +24,62 @@ namespace feedBack.Controllers
 
         }
          [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+       public async Task<IActionResult> Get()
 
         {
 
 
-            var results1 = client.client.Cypher
+            var results1 =await client.client.Cypher
              .Match("(user:User)")
              .Return(user => user.As<User>())
-             .Results;
+             .ResultsAsync;
             return Ok(results1);
         }
         // GET api/values/5
         ////Get user by id
         [HttpGet("user/{userid}")]
-        public ActionResult<string> Get(int userid)
+        public async Task<IActionResult> Get(int userid)
         {
-            var results = client.client.Cypher
+            var results =await client.client.Cypher
            .Match("(user:User)")
            .Where((User user) => user.UserId == userid)
            .Return(user => user.As<User>())
-           .Results;
+           .ResultsAsync;
             return Ok(results);
         }
         //Get learningplan by id
         [HttpGet("learningplan/{learningplanid}")]
-        public ActionResult<string> Get1(int learningplanid)
+        public async Task<IActionResult> Get1(int learningplanid)
         {
-            var results = client.client.Cypher
+            var results =await client.client.Cypher
           .Match("(LP:LearningPlan)")
           .Where((LearningPlan LP) => LP.LearningPlanId == learningplanid)
           .Return(LP => LP.As<LearningPlan>())
-          .Results;
+          .ResultsAsync;
             return Ok(results);
 
         }
        //Get resource by id
         [HttpGet("resource/{resourceid}")]
-        public ActionResult<string> Get2(int resourceid)
+        public async Task<IActionResult> Get2(int resourceid)
         {
-            var results = client.client.Cypher
+            var results = await client.client.Cypher
           .Match("(Re:Resource)")
           .Where((Resource Re) => Re.ResourceId == resourceid)
           .Return(Re => Re.As<Resource>())
-          .Results;
+          .ResultsAsync;
             return Ok(results);
 
         }
         //Get question by id
         [HttpGet("question/{questionid}")]
-        public ActionResult<string> Get3(int questionid)
+        public async Task<IActionResult> Get3(int questionid)
         {
-            var results = client.client.Cypher
+            var results =await client.client.Cypher
           .Match("(qe:Question)")
           .Where((Question qe) => qe.QuestionId == questionid)
           .Return(qe => qe.As<Question>())
-          .Results;
+          .ResultsAsync;
             return Ok(results);
 
         }
@@ -101,7 +101,7 @@ namespace feedBack.Controllers
                     newUser
                 })
               .ExecuteWithoutResults();
-                return Ok();
+               return Ok();
             }
             catch (Exception ex)
             {
