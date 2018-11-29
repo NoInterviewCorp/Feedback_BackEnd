@@ -11,7 +11,7 @@ namespace feedBack
         public int LearningPlanId { get; set; }
         public int UserId { get; set; }
         public int Star { get; set; }
-        public int subscribe { get; set; }
+        public int Subscribe { get; set; }
 
     }
 }

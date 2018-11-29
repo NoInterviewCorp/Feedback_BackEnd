@@ -24,13 +24,13 @@ namespace feedBack.Controllers
             this.client = _client;
 
         }
-         [HttpGet]
-       public async Task<IActionResult> Get()
+        [HttpGet]
+        public async Task<IActionResult> Get()
 
         {
 
 
-            var userResults =await client.client.Cypher
+            var userResults = await client.client.Cypher
              .Match("(user:User)")
              .Return(user => user.As<User>())
              .ResultsAsync;
@@ -41,47 +41,47 @@ namespace feedBack.Controllers
         [HttpGet("user/{userId}")]
         public async Task<IActionResult> GetUserById(int userId)
         {
-            var results =await client.client.Cypher
+            var userResult = await client.client.Cypher
            .Match("(user:User)")
            .Where((User user) => user.UserId == userId)
            .Return(user => user.As<User>())
            .ResultsAsync;
-            return Ok(results);
+            return Ok(userResult);
         }
         //Get learningplan by id
-        [HttpGet("learningplan/{learningPlanId}")]
+        [HttpGet("LearningPlan/{learningPlanId}")]
         public async Task<IActionResult> GetLearningPlanById(int learningplanId)
         {
-            var results =await client.client.Cypher
+            var learningPlanResult = await client.client.Cypher
           .Match("(LP:LearningPlan)")
           .Where((LearningPlan LP) => LP.LearningPlanId == learningplanId)
           .Return(LP => LP.As<LearningPlan>())
           .ResultsAsync;
-            return Ok(results);
+            return Ok(learningPlanResult);
 
         }
-       //Get resource by id
-        [HttpGet("resource/{resourceId}")]
+        //Get resource by id
+        [HttpGet("Resource/{resourceId}")]
         public async Task<IActionResult> GetResourceById(int resourceId)
         {
-            var results = await client.client.Cypher
+            var resourceResult = await client.client.Cypher
           .Match("(Re:Resource)")
           .Where((Resource Re) => Re.ResourceId == resourceId)
           .Return(Re => Re.As<Resource>())
           .ResultsAsync;
-            return Ok(results);
+            return Ok(resourceResult);
 
         }
         //Get question by id
-        [HttpGet("question/{questionId}")]
+        [HttpGet("Question/{questionId}")]
         public async Task<IActionResult> GetQuestionById(int questionId)
         {
-            var results =await client.client.Cypher
+            var questionResult = await client.client.Cypher
           .Match("(qe:Question)")
           .Where((Question qe) => qe.QuestionId == questionId)
           .Return(qe => qe.As<Question>())
           .ResultsAsync;
-            return Ok(results);
+            return Ok(questionResult);
 
         }
 
@@ -102,7 +102,7 @@ namespace feedBack.Controllers
                     newUser
                 })
               .ExecuteWithoutResults();
-               return Ok();
+                return Ok();
             }
             catch (Exception ex)
             {
@@ -114,8 +114,8 @@ namespace feedBack.Controllers
 
         }
         //post learningplan
-        [HttpPost("UploadsLearningPlan")]
-        public IActionResult LPPost([FromBody] LearningPlan newLP)
+        [HttpPost("UploadLearningPlan")]
+        public IActionResult LPPost([FromBody] LearningPlan newLearningPlan)
         {
             try
             {
@@ -126,8 +126,8 @@ namespace feedBack.Controllers
                 .Set("LP = {newLP}")
                 .WithParams(new
                 {
-                    id = newLP.LearningPlanId,
-                    newLP
+                    id = newLearningPlan.LearningPlanId,
+                    newLearningPlan
                 })
               .ExecuteWithoutResults();
                 return Ok();
@@ -142,7 +142,7 @@ namespace feedBack.Controllers
 
         }
         //post resources
-        [HttpPost("UploadsResource")]
+        [HttpPost("UploadResource")]
         public IActionResult ResourcePost([FromBody] Resource newResource)
         {
             try
@@ -170,7 +170,7 @@ namespace feedBack.Controllers
 
         }
         //post questions
-        [HttpPost("UploadsQuestion")]
+        [HttpPost("UploadQuestion")]
         public IActionResult QuestionPost([FromBody] Question newQuestion)
         {
             try
@@ -195,31 +195,6 @@ namespace feedBack.Controllers
             }
             //newUser =new  List<User>();
 
-
-        }
-       // upload userprofilepic
-        [HttpPost("UploadsProfilePic")]
-
-        public async Task<IActionResult> UploadsProfilePic(IFormFileCollection files)
-        {
-
-            long size = files.Sum(f => f.Length);
-            try
-            {
-                foreach (var formFile in files)
-                {
-                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "./ProfilePic/Image", formFile.FileName);
-                    var stream = new FileStream(filePath, FileMode.Create);
-                    await formFile.CopyToAsync(stream);
-
-
-                }
-                return Ok(new { count = files.Count });
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
 
         }
         //Rate a learningplan
@@ -294,7 +269,7 @@ namespace feedBack.Controllers
         [HttpPost("SubscriberLearningPlan")]
         public async Task<IActionResult> SubscriberLearningPlanAsync([FromBody] LearningPlanFeedBack learningPlanFeedback)
         {
-            GiveStarPayload LearningPlanSubscriber = new GiveStarPayload { Subscribe = learningPlanFeedback.subscribe };
+            GiveStarPayload LearningPlanSubscriber = new GiveStarPayload { Subscribe = learningPlanFeedback.Subscribe };
             await client.client.Cypher
                 .Match("(user:User)", "(lp:LearningPlan)")
                 .Where((User user) => user.UserId == learningPlanFeedback.UserId)
@@ -307,7 +282,7 @@ namespace feedBack.Controllers
                 .Set("g={LearningPlanSubscriber}")
                 .WithParams(new
                 {
-                    usersubscribe = learningPlanFeedback.subscribe,
+                    usersubscribe = learningPlanFeedback.Subscribe,
                     LearningPlanSubscriber
                 })
                 .ExecuteWithoutResultsAsync();
@@ -330,7 +305,7 @@ namespace feedBack.Controllers
         [HttpPost("UnSubscriberLearningPlan")]
         public async Task<IActionResult> UnSubscriberLearningPlanAsync([FromBody] LearningPlanFeedBack learningPlanFeedback)
         {
-            GiveStarPayload LearningPlanSubscriber = new GiveStarPayload { Subscribe = learningPlanFeedback.subscribe };
+            GiveStarPayload LearningPlanSubscriber = new GiveStarPayload { Subscribe = learningPlanFeedback.Subscribe };
             await client.client.Cypher
                 .Match("(user:User)", "(lp:LearningPlan)")
                 .Where((User user) => user.UserId == learningPlanFeedback.UserId)
@@ -338,15 +313,6 @@ namespace feedBack.Controllers
 
                 .Merge("(user)-[g:Subscribe_LP]->(lp)")
                 .Delete("g")
-                //.OnCreate()
-                //.Set("g={LearningPlanSubscriber}")
-               // .OnMatch()
-               // .Set("g={LearningPlanSubscriber}")
-               // .WithParams(new
-               // {
-               //     usersubscribe = learningPlanFeedback.subscribe,
-               //     LearningPlanSubscriber
-               // })
                 .ExecuteWithoutResultsAsync();
             var totalsubscriber = await client.client.Cypher
                .Match("(:User)-[g:Subscribe_LP]->(lp:LearningPlan {LearningPlanId:{id}})")
@@ -367,7 +333,7 @@ namespace feedBack.Controllers
         [HttpPost("ReportQuestion")]
         public async Task<IActionResult> ReportQuestionAsync([FromBody] QuestionFeedBack questionFeedBack)
         {
-            GiveStarPayload QuestionReport = new GiveStarPayload { ambigous = questionFeedBack.Ambiguity };
+            GiveStarPayload QuestionReport = new GiveStarPayload { Ambigous = questionFeedBack.Ambiguity };
             await client.client.Cypher
                 .Match("(user:User)", "(qe:Question)")
                 .Where((User user) => user.UserId == questionFeedBack.UserId)
@@ -409,7 +375,7 @@ namespace feedBack.Controllers
             try
             {
                 client.client.Cypher
-              .Match("(user:User)")  
+              .Match("(user:User)")
               .Where((User user) => user.UserId == id)
                .Set("user = {newUser}")
                     .WithParams(new
@@ -427,7 +393,7 @@ namespace feedBack.Controllers
         }
         // DELETE api/values/5
         // delete a user
-        
+
         [HttpDelete("user/{id}")]
         public void Delete(int id)
         {
