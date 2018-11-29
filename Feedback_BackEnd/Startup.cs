@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using feedBack.Services;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.AspNetCore.StaticFiles;
 namespace feedBack
 {
     public class Startup

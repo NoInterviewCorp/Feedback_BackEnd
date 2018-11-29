@@ -68,3 +68,17 @@ c:\Users\CGI\Stackroute\new\feed\Feedback_BackEnd\obj\Debug\netcoreapp2.1\feedBa
 c:\Users\CGI\Stackroute\new\feed\Feedback_BackEnd\obj\Debug\netcoreapp2.1\feedBack.RazorTargetAssemblyInfo.cache
 c:\Users\CGI\Stackroute\new\feed\Feedback_BackEnd\obj\Debug\netcoreapp2.1\feedBack.dll
 c:\Users\CGI\Stackroute\new\feed\Feedback_BackEnd\obj\Debug\netcoreapp2.1\feedBack.pdb
+c:\Users\CGI\Stackroute\FeedbackFinal\feed\Feedback_BackEnd\bin\Debug\netcoreapp2.1\feedBack.deps.json
+c:\Users\CGI\Stackroute\FeedbackFinal\feed\Feedback_BackEnd\bin\Debug\netcoreapp2.1\feedBack.runtimeconfig.json
+c:\Users\CGI\Stackroute\FeedbackFinal\feed\Feedback_BackEnd\bin\Debug\netcoreapp2.1\feedBack.runtimeconfig.dev.json
+c:\Users\CGI\Stackroute\FeedbackFinal\feed\Feedback_BackEnd\bin\Debug\netcoreapp2.1\feedBack.dll
+c:\Users\CGI\Stackroute\FeedbackFinal\feed\Feedback_BackEnd\bin\Debug\netcoreapp2.1\feedBack.pdb
+c:\Users\CGI\Stackroute\FeedbackFinal\feed\Feedback_BackEnd\obj\Debug\netcoreapp2.1\feedBack.csprojAssemblyReference.cache
+c:\Users\CGI\Stackroute\FeedbackFinal\feed\Feedback_BackEnd\obj\Debug\netcoreapp2.1\feedBack.csproj.CoreCompileInputs.cache
+c:\Users\CGI\Stackroute\FeedbackFinal\feed\Feedback_BackEnd\obj\Debug\netcoreapp2.1\feedBack.RazorAssemblyInfo.cache
+c:\Users\CGI\Stackroute\FeedbackFinal\feed\Feedback_BackEnd\obj\Debug\netcoreapp2.1\feedBack.RazorAssemblyInfo.cs
+c:\Users\CGI\Stackroute\FeedbackFinal\feed\Feedback_BackEnd\obj\Debug\netcoreapp2.1\feedBack.AssemblyInfoInputs.cache
+c:\Users\CGI\Stackroute\FeedbackFinal\feed\Feedback_BackEnd\obj\Debug\netcoreapp2.1\feedBack.AssemblyInfo.cs
+c:\Users\CGI\Stackroute\FeedbackFinal\feed\Feedback_BackEnd\obj\Debug\netcoreapp2.1\feedBack.RazorTargetAssemblyInfo.cache
+c:\Users\CGI\Stackroute\FeedbackFinal\feed\Feedback_BackEnd\obj\Debug\netcoreapp2.1\feedBack.dll
+c:\Users\CGI\Stackroute\FeedbackFinal\feed\Feedback_BackEnd\obj\Debug\netcoreapp2.1\feedBack.pdb

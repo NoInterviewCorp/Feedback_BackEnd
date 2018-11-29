@@ -9,6 +9,7 @@ using feedBack;
 using System.IO;
 using Microsoft.AspNetCore.Http;
 using System.Web.Http;
+using Microsoft.AspNetCore.StaticFiles;
 namespace feedBack.Controllers
 {
     [Route("api/[controller]")]
@@ -29,55 +30,55 @@ namespace feedBack.Controllers
         {
 
 
-            var results1 =await client.client.Cypher
+            var userResults =await client.client.Cypher
              .Match("(user:User)")
              .Return(user => user.As<User>())
              .ResultsAsync;
-            return Ok(results1);
+            return Ok(userResults);
         }
-        // GET api/values/5
-        ////Get user by id
-        [HttpGet("user/{userid}")]
-        public async Task<IActionResult> Get(int userid)
+
+        //Get user by id
+        [HttpGet("user/{userId}")]
+        public async Task<IActionResult> GetUserById(int userId)
         {
             var results =await client.client.Cypher
            .Match("(user:User)")
-           .Where((User user) => user.UserId == userid)
+           .Where((User user) => user.UserId == userId)
            .Return(user => user.As<User>())
            .ResultsAsync;
             return Ok(results);
         }
         //Get learningplan by id
-        [HttpGet("learningplan/{learningplanid}")]
-        public async Task<IActionResult> Get1(int learningplanid)
+        [HttpGet("learningplan/{learningPlanId}")]
+        public async Task<IActionResult> GetLearningPlanById(int learningplanId)
         {
             var results =await client.client.Cypher
           .Match("(LP:LearningPlan)")
-          .Where((LearningPlan LP) => LP.LearningPlanId == learningplanid)
+          .Where((LearningPlan LP) => LP.LearningPlanId == learningplanId)
           .Return(LP => LP.As<LearningPlan>())
           .ResultsAsync;
             return Ok(results);
 
         }
        //Get resource by id
-        [HttpGet("resource/{resourceid}")]
-        public async Task<IActionResult> Get2(int resourceid)
+        [HttpGet("resource/{resourceId}")]
+        public async Task<IActionResult> GetResourceById(int resourceId)
         {
             var results = await client.client.Cypher
           .Match("(Re:Resource)")
-          .Where((Resource Re) => Re.ResourceId == resourceid)
+          .Where((Resource Re) => Re.ResourceId == resourceId)
           .Return(Re => Re.As<Resource>())
           .ResultsAsync;
             return Ok(results);
 
         }
         //Get question by id
-        [HttpGet("question/{questionid}")]
-        public async Task<IActionResult> Get3(int questionid)
+        [HttpGet("question/{questionId}")]
+        public async Task<IActionResult> GetQuestionById(int questionId)
         {
             var results =await client.client.Cypher
           .Match("(qe:Question)")
-          .Where((Question qe) => qe.QuestionId == questionid)
+          .Where((Question qe) => qe.QuestionId == questionId)
           .Return(qe => qe.As<Question>())
           .ResultsAsync;
             return Ok(results);
@@ -426,6 +427,7 @@ namespace feedBack.Controllers
         }
         // DELETE api/values/5
         // delete a user
+        
         [HttpDelete("user/{id}")]
         public void Delete(int id)
         {
